@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Apartment 101 &mdash; Welcome to the world's best aBnB</title>
+  	<meta name="robots" content="noodp"/>
+  	<meta name="description" content="Powered by Grovey_Slocks :: Smart Door Access Control for BnB's." />
+  	<meta name="keywords" content="Internet of Things, IoT, Beacons, Geolocation, BnB, Access Control, Smart Doors, Proof of Concept Design" />
+  	<meta name="author" content="Gerrikoio" />
+
+    <meta property="og:locale" content="en_GB" />
+  	<meta property="og:type" content="website" />
+  	<meta property="og:title" content=">Apartment 101 &mdash; Welcome to the world's best aBnB"/>
+  	<meta property="og:description" content="Powered by Grovey_Slocks :: Smart Door Access Control for BnB's."/>
+  	<meta property="og:image" content=""/>
+  	<meta property="og:url" content=""/>
+  	<meta property="og:site_name" content="Grovey_Slocks"/>
+  	<meta name="twitter:title" content="Apartment 101 &mdash; Welcome to the world's best aBnB" />
+  	<meta name="twitter:image" content="" />
+  	<meta name="twitter:url" content="" />
+  	<meta name="twitter:card" content="summary" />
+
+  	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  	<link rel="shortcut icon" href="../img/icon/favicon.ico">
+  	<link rel="apple-touch-icon" sizes="57x57" href="../img/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../img/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../img/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../img/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../img/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../img/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../img/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../img/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../img/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../img/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/icon/favicon-16x16.png">
+    <link rel="manifest" href="../img/icon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../img/icon/ms-icon-144x144.png">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="../css/grovey_style.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body ng-app="app1" ng-cloak>
+    <!-- Navigation -->
+    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top" onclick=$("#menu-close").click();>Grovey_Slocks</a>
+            </li>
+            <li>
+                <a href="#top" onclick=$("#menu-close").click();>Home</a>
+            </li>
+            <li>
+                <a href="#about" onclick=$("#menu-close").click();>Let Me In</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>Apartment 101</h1>
+            <h3>Powered by<br><strong>Grovey_Slocks</strong></h3>
+            <h4>Smart Door Access Control for BnB's<br>Demo Webpage for Hackster.io</h4>
+            <br>
+            <a href="#about" class="btn btn-dark btn-lg">Find Out More</a>
+        </div>
+    </header>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="container" ng-controller="doorctrlr">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>If you have just arrived at our wonderful Smart aBnB. Welcome!</h2>
+                    <div ng-hide="openBooking"><h2>Please click on the button shown to gain access</h2></div>
+                    <div ng-show="openBooking"><h2>Now, please follow the instructions.</h2></div>
+                    <div class="row">
+                      <div class="col-md-4 col-md-offset-4 text-center" ng-hide="openBooking">
+                        <br>
+                        <button type="button" class="btn btn-danger btn-lg btn-block" ng-click="knocknock()">
+                          <h2>Apt No. 101</h2>
+                          <h4><span class="fa fa-hotel leticon" aria-hidden="true"></span></h4>
+                          <h3>Please Let Me In</h3>
+                        </button>
+                        <br>
+                        <p class="lead">Please Note.<br>This feature only works if you are actually present at the door and have a booking.</p>
+                      </div>
+                      <div class="col-md-10 col-md-offset-1" id="doorCheckResp" ng-show="openBooking">
+                        <div class="well">
+                          <form class="form-inline" ng-show="newBooking" ng-submit="submitbooking()">
+                            <fieldset>
+                              <legend>Your booking details please</legend>
+                              <div class="form-group">
+                                <label for="bookingref">Booking Ref:</label>
+                                <input type="text" class="form-control" id="bookingref" ng-model="bookReg.ref" placeholder="ABCD1234" required>
+                              </div>
+                              <div class="form-group">
+                                <label for="bookingemail">Email</label>
+                                <input type="email" class="form-control" id="bookingemail" ng-model="bookReg.email" placeholder="jane.doe@example.com" required>
+                              </div>
+                              <button type="submit" class="btn btn-primary btn-lg">Send Details</button>
+                            </fieldset>
+                          </form>
+                          <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                              <h3 class="text-success">{{bookingReqmsg}}</h3>
+                              <div class="col-xs-12" ng-show="doorReady">
+                                <h3 class="text-danger">Great. You can now press this Button to unlock the door.</h3>
+                                <button type="button" class="btn btn-danger btn-lg btn-block" ng-hide="doorUnlocked" ng-click="unlockDoor()">
+                                  <h4><span class="fa fa-key leticon" aria-hidden="true"></span></h4>
+                                  <h3>UNLOCK DOOR</h3>
+                                </button>
+                                <button type="button" class="btn btn-success btn-lg btn-block" ng-show="doorUnlocked">
+                                  <h4><span class="fa fa-key leticon" aria-hidden="true"></span></h4>
+                                  <h3>DOOR UNLOCKED</h3>
+                                </button>
+                              </div>
+                              <div class="col-xs-12" ng-show="doorUnlocked">
+                                <hr>
+                                <h1>{{doorUnlockmsg}}</h1>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Apartment 101</strong></h4>
+                    <p>101 Prince BelAir Place<br>Beverly Hills, CA 90210</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:name@example.com">apartment.101@example.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#!"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#!"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#!"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Gerrikoio 2017</p>
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="../js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script src="../js/groveyapp.js"></script>
+
+  </body>
+</html>
