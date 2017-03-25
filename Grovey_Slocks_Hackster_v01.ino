@@ -207,6 +207,7 @@ void loop() {
 
   // Check for messages from serial port
   if (impSerial.available()) {
+    if (BTN1press) CurieTimerOne.pause();
     if (Booking) {
       Booking = false;
       char BookData[16];
@@ -238,6 +239,7 @@ void loop() {
       }
     }
     Serial.flush();
+    if (BTN1press) CurieTimerOne.resume();
   }
   
   // Ping timer for monitoring that "all is ok" - sends msg to cloud server
