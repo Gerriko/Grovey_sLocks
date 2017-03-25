@@ -217,6 +217,7 @@ void loop() {
         else {
           if (j < 16 && isAlphaNumeric(newChar)) BookData[j] = newChar;
         }
+        delay(1);             // add short delay to ensure serial buffer full
       }
       Serial.print(F("Name Recvd: ")); Serial.println(BookData);
       if (BTN1press) lcdBooking(BookData);
