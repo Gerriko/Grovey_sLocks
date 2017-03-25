@@ -19,7 +19,7 @@ const byte
   MIN_LIGHTLEVEL =                      10;             // The min light level for night light activation
 
 const char* 
-  MY_URL =                              "https://lingertech.info/gs/";
+  MY_URL =                              "https://--- ENTER YOUR URL HERE ---";
 
 const uint8_t 
   MAX_URL_FRAME_LENGTH =                1 + 1 + 1 + 17,
