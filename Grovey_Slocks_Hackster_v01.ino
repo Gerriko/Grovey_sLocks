@@ -210,7 +210,7 @@ void loop() {
     if (BTN1press) CurieTimerOne.pause();
     if (Booking) {
       Booking = false;
-      char BookData[16];
+      char BookData[16] = {""};
       byte kk = 0;
       for (byte j = 0; j < 18; j++) {
         byte newChar = impSerial.read();
