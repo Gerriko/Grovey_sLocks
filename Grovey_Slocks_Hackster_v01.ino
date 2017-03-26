@@ -211,11 +211,17 @@ void loop() {
     if (Booking) {
       Booking = false;
       char BookData[16];
+      byte kk = 0;
       for (byte j = 0; j < 18; j++) {
-        char newChar = char(impSerial.read());
+        byte newChar = impSerial.read();
         if (newChar == '\n') break;
         else {
-          if (j < 16 && isAlphaNumeric(newChar)) BookData[j] = newChar;
+          if (kk < 16) {
+            if (isAlphaNumeric(newChar)) {
+              BookData[kk] = char(newChar);
+              kk++;
+            }
+          }
         }
         delay(1);             // add short delay to ensure serial buffer full
       }
