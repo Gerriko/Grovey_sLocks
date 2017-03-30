@@ -1,3 +1,23 @@
+/***************************************************
+  This is the Arduino 101 code for Grovey sLocks
+  This software is written by Gerrikoio.
+  MIT license applies, see copy of license text in github folder
+
+  This example uses the curieBLE device and the code used
+  is an extract from CurieEddystoneURL.ino, which is 
+   * Copyright (c) 2016 Bradford Needham, North Plains, Oregon, USA
+   * @bneedhamia, https://www.needhamia.com
+   * and is Licensed under the Apache 2.0 License, a copy of which
+   * is included in the following github repo:
+   * https://github.com/bneedhamia/CurieEddystoneURL
+  Thanks goes to bndeedhamia for saving me a lot of time
+  
+  The rgb_lcd.h library used for the RGB LCD is
+  2013 Copyright (c) Seeed Technology Inc.  All right reserved.
+  It is provided under the MIT License (MIT). Details can be found here:
+  https://github.com/Seeed-Studio/Grove_LCD_RGB_Backlight
+ ****************************************************/
+
 // **** INCLUDES *****
 #include "CurieTimerOne.h"
 #include <CurieBLE.h>
@@ -30,8 +50,8 @@ const uint8_t
   URL_PREFIX_HTTPS_COLON_SLASH_SLASH =  0x03;           // 0x03 = https://
 
 const int8_t
-  MIN_EEPADDR =                         32,             // EEPROM address for calibrated min angular sensor value
-  MAX_EEPADDR =                         36,             // EEPROM address for calibrated max angular sensor value
+  MIN_EEPADDR =                         32,             // EEPROM address for calibrated min angular sensor value (arbitrary address used)
+  MAX_EEPADDR =                         36,             // EEPROM address for calibrated max angular sensor value (arbitrary address used - make sure no overlap though!)
   TX_POWER_DBM =                        (-70 + 41),
   colorR =                              255,
   colorG =                              255,
@@ -132,7 +152,7 @@ void setup() {
   else {
     canMONITORdoor = true;
 
-    //read angle sensor vals a couple of times to ensure good readings from analog pin
+    //read angle sensor vals a couple of times to ensure good readings from analog pin 
     for (int i = 0; i < 3; i++) {
       AngleVal = analogRead(PIN_ANGLE);
       delay(2);
