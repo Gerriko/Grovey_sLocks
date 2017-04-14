@@ -455,24 +455,7 @@ void loop() {
             delay(10);
           }
         }
-        /*
-        else {
-          if (AngleVal > prevAngleVal) {
-            // door opening
-            Serial.println(F("D opening"));
-            doorMovmnt = 11;              // Door movement (11=opening, 12=closing)
-          }
-          else{
-            // door closing
-            Serial.println(F("D closing"));
-            doorMovmnt = 12;              // Door movement (11=opening, 12=closing)
-          }
-          impSerial.write(doorMovmnt);                          // Send info to WiFi module
-          impSerial.print('\n');
-          impSerial.flush();
-        }
-        */
-        Serial.flush();
+         Serial.flush();
       }
       t_door = millis();
     }
